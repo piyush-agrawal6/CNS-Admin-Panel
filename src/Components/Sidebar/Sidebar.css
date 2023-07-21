@@ -11,7 +11,7 @@
   transition: 0.5s ease-out;
   overflow-x: hidden;
   scrollbar-width: none;
-  box-shadow: rgba(151, 170, 210, 0.2) 0px 7px 29px 0px;
+  box-shadow: rgba(151, 170, 210, 0.2) 0px 7px 9px 0px;
 }
 #sidebar::--webkit-scrollbar {
   display: none;
@@ -27,7 +27,7 @@
 }
 #sidebar .side-menu {
   width: 100%;
-  margin-top: 40px;
+  margin-top: 25px;
 }
 #sidebar .side-menu li {
   height: 48px;
