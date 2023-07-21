@@ -2,9 +2,9 @@
 #content main {
   width: 100%;
   padding: 36px 24px;
-  font-family: var(--poppins);
-  max-height: calc(100vh - 56px);
+  max-height: calc(100vh - 75px);
   overflow-y: auto;
+  background-color: var(--light);
 }
 #content main .head-title {
   display: flex;

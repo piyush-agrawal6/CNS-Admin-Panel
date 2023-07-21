@@ -1,65 +1,93 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import user from "../../Assets/user.webp";
-import {
-  BiSolidDashboard,
-  BiStore,
-  BiSolidPieChart,
-  BiMessageRoundedDots,
-  BiSolidGroup,
-  BiSolidCog,
-  BiLogOut,
-  BiSolidUser,
-  BiSolidBellRing,
-} from "react-icons/bi";
-import { HiMenu, HiSearch } from "react-icons/hi";
+import user from "../../Assets/profile.png";
+import logo from "../../Assets/logo.png";
+import { BiLogOut, BiLayout, BiHeart } from "react-icons/bi";
+import { TbLayoutGridAdd, TbCube, TbMessages, TbUsers } from "react-icons/tb";
+import { LuCircleDot, LuFile, LuLayoutGrid } from "react-icons/lu";
+import { PiBasket, PiShootingStarLight, PiLightbulbThin } from "react-icons/pi";
+import { GoMail } from "react-icons/go";
+import { HiOutlineHome } from "react-icons/hi";
+import { CiShoppingBasket } from "react-icons/ci";
+import { BsBell } from "react-icons/bs";
+import { CiSearch } from "react-icons/ci";
+import { GoChevronDown } from "react-icons/go";
+import { LiaFlagUsaSolid } from "react-icons/lia";
 import "./Sidebar.css";
 const Sidebar = ({ children }) => {
   const [toggle, setToggle] = useState(false);
+
   return (
     <>
       <div id="sidebar" className={toggle ? "hide" : ""}>
-        <Link href="/" className="brand">
-          <BiSolidUser />
-          <span className="text">Admin</span>
+        <Link href="/" className="logo">
+          <img src={logo} alt="logo" />
         </Link>
         <ul className="side-menu top">
           <li className="active">
             <Link href="/">
-              <BiSolidDashboard />
-              <span className="text">Dashboard</span>
+              <HiOutlineHome />
+              <span className="text">Dashboards</span>
             </Link>
           </li>
           <li>
             <Link href="/">
-              <BiStore />
-              <span className="text">My Store</span>
+              <TbLayoutGridAdd />
+              <span className="text">Widgets</span>
             </Link>
           </li>
           <li>
             <Link href="/">
-              <BiSolidPieChart />
-              <span className="text">Analytics</span>
+              <BiLayout />
+              <span className="text">Page Layout</span>
             </Link>
           </li>
           <li>
             <Link href="/">
-              <BiMessageRoundedDots />
-              <span className="text">Message</span>
+              <LuCircleDot />
+              <span className="text">Project</span>
             </Link>
           </li>
           <li>
             <Link href="/">
-              <BiSolidGroup />
-              <span className="text">Team</span>
+              <LuFile />
+              <span className="text">File Manager</span>
             </Link>
           </li>
-        </ul>
-        <ul className="side-menu">
           <li>
             <Link href="/">
-              <BiSolidCog />
-              <span className="text">Settings</span>
+              <TbCube />
+              <span className="text">Kanban Board</span>
+            </Link>
+          </li>
+          <li>
+            <Link href="/">
+              <PiBasket />
+              <span className="text">E-commerce</span>
+            </Link>
+          </li>
+          <li>
+            <Link href="/">
+              <GoMail />
+              <span className="text">Letter Box</span>
+            </Link>
+          </li>
+          <li>
+            <Link href="/">
+              <TbMessages />
+              <span className="text">Chat</span>
+            </Link>
+          </li>
+          <li>
+            <Link href="/">
+              <TbUsers />
+              <span className="text">Users</span>
+            </Link>
+          </li>
+          <li>
+            <Link href="/">
+              <BiHeart />
+              <span className="text">Bookmarks</span>
             </Link>
           </li>
           <li>
@@ -72,27 +100,46 @@ const Sidebar = ({ children }) => {
       </div>
       <div id="content">
         <nav>
-          <HiMenu className="menuIcon" onClick={() => setToggle(!toggle)} />
-          <Link href="/" className="nav-link">
-            Categories
-          </Link>
-          <form>
-            <div className="form-input">
-              <input type="search" placeholder="Search..." />
-              <button type="submit" className="search-btn">
-                <HiSearch />
-              </button>
-            </div>
-          </form>
-          <input type="checkbox" id="switch-mode" hidden />
-          <label htmlFor="switch-mode" className="switch-mode"></label>
-          <Link href="/" className="notification">
-            <BiSolidBellRing />
-            <span className="num">8</span>
-          </Link>
-          <Link href="/" className="profile">
-            <img src={user} />
-          </Link>
+          <div>
+            <LuLayoutGrid
+              className="menuIcon"
+              onClick={() => setToggle(!toggle)}
+            />
+            <Link href="/" className="nav-link">
+              🔥 Something you love is now on sale ! <span>Buy now !</span>
+            </Link>
+          </div>
+          <div>
+            <Link href="/" className="lang">
+              <LiaFlagUsaSolid /> EN
+            </Link>
+            <Link href="/" className="navIcon">
+              <CiSearch />
+            </Link>
+            <Link href="/" className="navIcon">
+              <PiShootingStarLight />
+            </Link>
+            <Link href="/" className="navIcon">
+              <PiLightbulbThin />
+            </Link>
+            <Link href="/" className="cart">
+              <CiShoppingBasket />
+              <span className="numCart number">2</span>
+            </Link>
+            <Link href="/" className="notification">
+              <BsBell />
+              <span className="num number">4</span>
+            </Link>
+            <Link href="/" className="profile">
+              <img src={user} />
+              <div>
+                <p>Emay Walter</p>
+                <p>
+                  Admin <GoChevronDown />
+                </p>
+              </div>
+            </Link>
+          </div>
         </nav>
         {children}
       </div>
