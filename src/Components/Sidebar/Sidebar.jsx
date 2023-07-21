@@ -15,13 +15,19 @@ import { GoChevronDown } from "react-icons/go";
 import { LiaFlagUsaSolid } from "react-icons/lia";
 import "./Sidebar.css";
 const Sidebar = ({ children }) => {
-  const [toggle, setToggle] = useState(false);
+  const [toggle, setToggle] = useState(true);
 
   return (
     <>
       <div id="sidebar" className={toggle ? "hide" : ""}>
         <Link href="/" className="logo">
-          <img src={logo} alt="logo" />
+          <div className="logoBox">
+            <img src={logo} alt="logo" />
+            <LuLayoutGrid
+              className="menuIconHidden"
+              onClick={() => setToggle(!toggle)}
+            />
+          </div>
         </Link>
         <ul className="side-menu top">
           <li className="active">

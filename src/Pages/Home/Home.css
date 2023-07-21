@@ -24,6 +24,7 @@
   font-size: 20px;
   color: rgb(88, 88, 88);
   cursor: pointer;
+  z-index: 1000;
 }
 .main .head-title {
   display: flex;
@@ -491,4 +492,160 @@
   font-size: 13px;
   color: rgb(66, 66, 66);
   font-weight: 400;
+}
+
+@media screen and (max-width: 1200px) {
+  .main .overview .overview-left {
+    display: none;
+  }
+  .main .overview .overview-right {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 1060px) {
+  .timeline {
+    flex-direction: column;
+  }
+  .timeline > div {
+    width: 100%;
+  }
+  .lastSection {
+    flex-direction: column;
+    gap: 10px;
+    margin: 0 10px;
+  }
+  .lastSection > div {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .main .head-title {
+    grid-gap: 10px;
+    padding: 10px 20px;
+  }
+  .main .head-left {
+    font-size: 20px;
+  }
+  .main .head-right {
+    gap: 6px;
+    font-size: 13px;
+  }
+
+  .main .charts {
+    gap: 10px;
+    padding: 10px;
+    flex-direction: column;
+  }
+  .main .charts .lineChart {
+    width: 100%;
+    padding: 15px;
+  }
+  .main .charts .pieChart {
+    width: 100%;
+    padding: 15px;
+  }
+  .main .charts .pieChart .pieBox {
+    width: 100%;
+    height: 200px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .main .float {
+    display: none;
+  }
+  .main .overview {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .main .overview .overview-left {
+    width: 100%;
+    display: block;
+  }
+  .main .overview .overview-left button {
+    margin-top: 20px;
+  }
+  .main .overview .overview-right {
+    width: 100%;
+  }
+  .main .charts .chartBox .chartOne {
+    width: 100%;
+  }
+  .main .charts .chartBox .chartTwo {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .main .overview {
+    padding: 15px;
+    gap: 15px;
+  }
+  .main .overview .overview-left {
+    height: 200px;
+    padding: 15px;
+  }
+  .main .overview .overview-left p {
+    width: 65%;
+    font-size: 14px;
+    line-height: 18px;
+  }
+  .main .overview .overview-left img {
+    width: 40%;
+    right: 10px;
+    bottom: -10px;
+  }
+  .main .overview .overview-right {
+    gap: 10px;
+  }
+  .main .overview-right li {
+    border-radius: 10px;
+    gap: 20px;
+  }
+  .main .overview-right li > div {
+    width: 50px;
+    height: 50px;
+    font-size: 17px;
+  }
+  .main .overview-right li .text h3 {
+    font-size: 20px;
+  }
+  .main .overview-right li .text p {
+    font-size: 16px;
+  }
+  .main .chartHead {
+    font-size: 18px;
+    font-weight: 500;
+    padding-bottom: 15px;
+  }
+  .timeline {
+    gap: 10px;
+    padding: 10px;
+  }
+  .timeline > div:nth-child(1) {
+    display: none;
+  }
+  .timeline > div {
+    height: auto;
+    padding: 10px;
+  }
+  .timeline > div > div {
+    margin: 0px;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .main .overview .overview-left {
+    height: 160px;
+    padding: 10px;
+  }
+  .main .overview .overview-left h2 {
+    font-size: 18px;
+  }
+  .main .overview .overview-left p {
+    width: 100%;
+  }
+  .main .overview .overview-left img {
+    display: none;
+  }
 }
