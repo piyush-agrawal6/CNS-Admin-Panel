@@ -1,4 +1,8 @@
+/* Font import */
+
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap");
+
+/* Global CSS */
 
 * {
   margin: 0;
@@ -33,12 +37,6 @@ li {
 
 html {
   overflow-x: hidden;
-}
-
-body.dark {
-  --light: #0c0c1e;
-  --grey: #060714;
-  --dark: #fbfbfb;
 }
 
 body {

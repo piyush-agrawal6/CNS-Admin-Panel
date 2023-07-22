@@ -1,25 +1,49 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+
+// Image imports
 import user from "../../Assets/profile.png";
 import logo from "../../Assets/logo.png";
+
+// Icon imports
 import { BiLogOut, BiLayout, BiHeart } from "react-icons/bi";
 import { TbLayoutGridAdd, TbCube, TbMessages, TbUsers } from "react-icons/tb";
 import { LuCircleDot, LuFile, LuLayoutGrid } from "react-icons/lu";
 import { PiBasket, PiShootingStarLight, PiLightbulbThin } from "react-icons/pi";
-import { GoMail } from "react-icons/go";
 import { HiOutlineHome } from "react-icons/hi";
 import { CiShoppingBasket } from "react-icons/ci";
 import { BsBell } from "react-icons/bs";
 import { CiSearch } from "react-icons/ci";
-import { GoChevronDown } from "react-icons/go";
+import { GoChevronDown, GoMail } from "react-icons/go";
 import { LiaFlagUsaSolid } from "react-icons/lia";
-import "./Sidebar.css";
-const Sidebar = ({ children }) => {
+
+// CSS imports
+import "./Navbar.css";
+import Menu from "../Menu/Menu";
+
+const Navbar = ({ children }) => {
+  //Sidebar toggle state
   const [toggle, setToggle] = useState(true);
+  const menuData = [
+    { icon: <HiOutlineHome />, title: "Dashboards" },
+    { icon: <TbLayoutGridAdd />, title: "Widgets" },
+    { icon: <BiLayout />, title: "Page Layout" },
+    { icon: <LuCircleDot />, title: "Project" },
+    { icon: <LuFile />, title: "File Manager" },
+    { icon: <TbCube />, title: "Kanban Board" },
+    { icon: <PiBasket />, title: "E-commerce" },
+    { icon: <GoMail />, title: "Letterbox" },
+    { icon: <TbMessages />, title: "Chat" },
+    { icon: <TbUsers />, title: "Users" },
+    { icon: <BiHeart />, title: "Bookmarks" },
+    { icon: <BiLogOut />, title: "Logout" },
+  ];
 
   return (
     <>
+      {/* Side Bar */}
       <div id="sidebar" className={toggle ? "hide" : ""}>
+        {/* Side bar logo */}
         <Link href="/" className="logo">
           <div className="logoBox">
             <img src={logo} alt="logo" />
@@ -29,81 +53,16 @@ const Sidebar = ({ children }) => {
             />
           </div>
         </Link>
+
+        {/* Side bar menu */}
         <ul className="side-menu top">
-          <li className="active">
-            <Link href="/">
-              <HiOutlineHome />
-              <span className="text">Dashboards</span>
-            </Link>
-          </li>
-          <li>
-            <Link href="/">
-              <TbLayoutGridAdd />
-              <span className="text">Widgets</span>
-            </Link>
-          </li>
-          <li>
-            <Link href="/">
-              <BiLayout />
-              <span className="text">Page Layout</span>
-            </Link>
-          </li>
-          <li>
-            <Link href="/">
-              <LuCircleDot />
-              <span className="text">Project</span>
-            </Link>
-          </li>
-          <li>
-            <Link href="/">
-              <LuFile />
-              <span className="text">File Manager</span>
-            </Link>
-          </li>
-          <li>
-            <Link href="/">
-              <TbCube />
-              <span className="text">Kanban Board</span>
-            </Link>
-          </li>
-          <li>
-            <Link href="/">
-              <PiBasket />
-              <span className="text">E-commerce</span>
-            </Link>
-          </li>
-          <li>
-            <Link href="/">
-              <GoMail />
-              <span className="text">Letter Box</span>
-            </Link>
-          </li>
-          <li>
-            <Link href="/">
-              <TbMessages />
-              <span className="text">Chat</span>
-            </Link>
-          </li>
-          <li>
-            <Link href="/">
-              <TbUsers />
-              <span className="text">Users</span>
-            </Link>
-          </li>
-          <li>
-            <Link href="/">
-              <BiHeart />
-              <span className="text">Bookmarks</span>
-            </Link>
-          </li>
-          <li>
-            <Link href="/" className="logout">
-              <BiLogOut />
-              <span className="text">Logout</span>
-            </Link>
-          </li>
+          {menuData?.map((data, i) => {
+            return <Menu Icon={data.icon} Title={data.title} key={i} />;
+          })}
         </ul>
       </div>
+
+      {/* Top Bar */}
       <div id="content">
         <nav>
           <div>
@@ -153,4 +112,4 @@ const Sidebar = ({ children }) => {
   );
 };
 
-export default Sidebar;
+export default Navbar;

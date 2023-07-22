@@ -1,14 +1,11 @@
-import React, { useCallback, useState } from "react";
-import Sidebar from "../../Components/Sidebar/Sidebar";
-import demo from "../../Assets/cartoon.svg";
+import React from "react";
+
+//Component imports
+import Navbar from "../../Components/Sidebar/Navbar";
+
+// Icons import
 import { BiHome } from "react-icons/bi";
-import { CiSettings, CiMedicalCase, CiShoppingCart } from "react-icons/ci";
-import {
-  PiPaintBucketThin,
-  PiKeyReturnThin,
-  PiCurrencyCircleDollarLight,
-} from "react-icons/pi";
-import { MdOutlineTune } from "react-icons/md";
+import { PiKeyReturnThin, PiCurrencyCircleDollarLight } from "react-icons/pi";
 import { FiShoppingCart, FiUserPlus, FiUserMinus } from "react-icons/fi";
 import { LiaHandHoldingUsdSolid } from "react-icons/lia";
 import {
@@ -19,11 +16,6 @@ import {
   BsArrowDownRight,
 } from "react-icons/bs";
 import { AiOutlineTag, AiOutlineLineChart } from "react-icons/ai";
-import {
-  VerticalTimeline,
-  VerticalTimelineElement,
-} from "react-vertical-timeline-component";
-import "react-vertical-timeline-component/style.min.css";
 import {
   BarChart,
   Bar,
@@ -38,106 +30,42 @@ import {
   Cell,
 } from "recharts";
 import { AntDesignOutlined, UserOutlined } from "@ant-design/icons";
-import { Avatar, Tooltip } from "antd";
 
+//CSS imports
+import {
+  VerticalTimeline,
+  VerticalTimelineElement,
+} from "react-vertical-timeline-component";
+import "react-vertical-timeline-component/style.min.css";
+import { Avatar, Tooltip } from "antd";
 import "./Home.css";
 
-const data = [
-  { name: "1", Earning: 300, Expense: 456 },
-  { name: "2", Earning: 100, Expense: 321 },
-  { name: "3", Earning: 9, Expense: 235 },
-  { name: "4", Earning: 53, Expense: 267 },
-  { name: "5", Earning: 43, Expense: 45 },
-  { name: "6", Earning: 222, Expense: 366 },
-  { name: "7", Earning: 372, Expense: 486 },
-  { name: "8", Earning: 182, Expense: 512 },
-  { name: "9", Earning: 164, Expense: 302 },
-  { name: "10", Earning: 316, Expense: 425 },
-  { name: "11", Earning: 131, Expense: 467 },
-  { name: "12", Earning: 154, Expense: 33 },
-  { name: "13", Earning: 205, Expense: 354 },
-  { name: "14", Earning: 70, Expense: 258 },
-  { name: "15", Earning: 53, Expense: 267 },
-  { name: "16", Earning: 43, Expense: 45 },
-  { name: "17", Earning: 222, Expense: 366 },
-  { name: "18", Earning: 372, Expense: 486 },
-  { name: "19", Earning: 53, Expense: 267 },
-  { name: "20", Earning: 43, Expense: 45 },
-];
+//Image imports
+import demo from "../../Assets/cartoon.svg";
 
-const lineData = [
-  {
-    name: "Jan",
-    uv: 4000,
-    pv: 2400,
-    amt: 2400,
-  },
-  {
-    name: "Feb",
-    uv: 3000,
-    pv: 1398,
-    amt: 2210,
-  },
-  {
-    name: "March",
-    uv: 2000,
-    pv: 9800,
-    amt: 2290,
-  },
-  {
-    name: "April",
-    uv: 2780,
-    pv: 3908,
-    amt: 2000,
-  },
-  {
-    name: "May",
-    uv: 1890,
-    pv: 4800,
-    amt: 2181,
-  },
-  {
-    name: "JuneF",
-    uv: 2390,
-    pv: 3800,
-    amt: 2500,
-  },
-  {
-    name: "July",
-    uv: 3490,
-    pv: 4300,
-    amt: 2100,
-  },
-];
-const pieData = [{ name: "Group A", value: 400 }];
-const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
+//Data imports
+import { barData, lineData, pieData, COLORS } from "../../data.js";
+import FloatDiv from "../../Components/FloatDiv/FloatDiv";
+import SalesDiv from "../../Components/SalesDiv/SalesDiv";
 
 const Home = () => {
+  const overviewData = [
+    { icon: <FiShoppingCart />, title: "Purchase", number: "10,000" },
+    { icon: <PiKeyReturnThin />, title: "Sales return", number: "7,000" },
+    { icon: <BsTruck />, title: "Orders", number: "180k" },
+    { icon: <AiOutlineTag />, title: "sales", number: "4,200" },
+    { icon: <BsClipboardMinus />, title: "Purchase rate", number: "5,700" },
+    { icon: <AiOutlineLineChart />, title: "Profit", number: "690k" },
+  ];
+
   return (
     <div>
-      <Sidebar>
+      <Navbar>
         <div className="main">
-          <div className="float">
-            <Tooltip placement="leftTop" color="#7366ff" title="Check layouts">
-              <PiPaintBucketThin />
-            </Tooltip>
-            <Tooltip placement="leftTop" color="#7366ff" title="Quick option">
-              <CiSettings />
-            </Tooltip>
-            <Tooltip placement="leftTop" color="#7366ff" title="Support">
-              <CiMedicalCase />
-            </Tooltip>
-            <Tooltip placement="leftTop" color="#7366ff" title="Document">
-              <CiSettings />
-            </Tooltip>
-            <Tooltip placement="leftTop" color="#7366ff" title="Check features">
-              <MdOutlineTune />
-            </Tooltip>
-            <Tooltip placement="leftTop" color="#7366ff" title="Buy now">
-              <CiShoppingCart />
-            </Tooltip>
-          </div>
+          {/* float toottip */}
+          <FloatDiv />
 
+          {/* Header */}
           <div className="head-title">
             <div className="head-left">Default</div>
             <div className="head-right">
@@ -145,6 +73,7 @@ const Home = () => {
             </div>
           </div>
 
+          {/* overview section */}
           <div className="overview">
             <div className="overview-left">
               <div>
@@ -157,62 +86,15 @@ const Home = () => {
               <img src={demo} alt="" />
             </div>
             <div className="overview-right">
-              <li>
-                <div>
-                  <FiShoppingCart />
-                </div>
-                <span className="text">
-                  <h3>10,000</h3>
-                  <p>Purchase</p>
-                </span>
-              </li>
-              <li>
-                <div>
-                  <PiKeyReturnThin />
-                </div>
-                <span className="text">
-                  <h3>7,000</h3>
-                  <p>Sales return</p>
-                </span>
-              </li>
-              <li>
-                <div>
-                  <BsTruck />
-                </div>
-                <span className="text">
-                  <h3>180k</h3>
-                  <p>Orders</p>
-                </span>
-              </li>
-              <li>
-                <div>
-                  <AiOutlineTag />
-                </div>
-                <span className="text">
-                  <h3>4,200</h3>
-                  <p>Sales</p>
-                </span>
-              </li>
-              <li>
-                <div>
-                  <BsClipboardMinus />
-                </div>
-                <span className="text">
-                  <h3>5,700</h3>
-                  <p>Purchase rate</p>
-                </span>
-              </li>
-              <li>
-                <div>
-                  <AiOutlineLineChart />
-                </div>
-                <span className="text">
-                  <h3>690k</h3>
-                  <p>profit</p>
-                </span>
-              </li>
+              {overviewData?.map(({ icon, title, number }, i) => {
+                return (
+                  <SalesDiv Icon={icon} Title={title} Number={number} key={i} />
+                );
+              })}
             </div>
           </div>
+
+          {/* Bar nd Pie Chart */}
           <div className="charts">
             <div className="lineChart">
               <div className="chartHead">
@@ -221,7 +103,7 @@ const Home = () => {
               <div className="chartBox">
                 <div className="chartOne">
                   <ResponsiveContainer>
-                    <BarChart width={200} height={300} data={data}>
+                    <BarChart width={200} height={300} data={barData}>
                       <XAxis dataKey="name" />
                       <Tooltip />
                       <Legend
@@ -276,7 +158,7 @@ const Home = () => {
                       paddingAngle={5}
                       dataKey="value"
                     >
-                      {data.map((entry, index) => (
+                      {pieData.map((entry, index) => (
                         <Cell
                           key={`cell-${index}`}
                           fill={COLORS[index % COLORS.length]}
@@ -513,7 +395,7 @@ const Home = () => {
             Copyright 2023 © Cuba theme clone by Piyush Agrawal
           </div>
         </div>
-      </Sidebar>
+      </Navbar>
     </div>
   );
 };
