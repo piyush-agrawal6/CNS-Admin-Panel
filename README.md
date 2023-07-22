@@ -17,6 +17,7 @@ Cuba Admin is a full-featured, multipurpose, premium admin template built with r
 - Completely Responsive webpage which works on all the devices
 - Bar, pie and line charts with proper representation of data
 - Can be easily modified according to any use case
+- reusable UI components
 
 
 ## 🔗 Links
