@@ -40,10 +40,13 @@ Live - https://cns-admin-panel-ui.netlify.app/
 
  ![3](https://github.com/piyush-agrawal6/CNS-Admin-Panel/assets/100460788/30d7dc35-0c3b-4fa2-949d-2f41e7ea24a0)
 
-3. Line chart 
+3. Line chart
 
 ![4](https://github.com/piyush-agrawal6/CNS-Admin-Panel/assets/100460788/bbfdbf6e-6d1a-4331-a826-53ef2d5d1455)
 
+4. Responsiveness
+
+![code with Joy!](https://github.com/piyush-agrawal6/CNS-Admin-Panel/assets/100460788/a07829e1-a866-45bf-91ef-8cb7e7bd5f21)
 
 
 ##  Contributor
