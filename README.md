@@ -1,5 +1,7 @@
 # CUBA Admin Panel Clone
 
+Cuba Admin is a full-featured, multipurpose, premium admin template built with react js, HTML5, and CSS. It has a huge collection of reusable UI components and is integrated with the latest CSS libraries. It can be used for all types of Web applications like custom admin panel, app backend, CMS or CRM.
+
 ## Tech Stack / Libraries
 - **React**
 - **Ant Designs**
